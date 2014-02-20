@@ -9,5 +9,5 @@ before_script:
 - sh -e /etc/init.d/xvfb start
 notifications:
   hipchat:
-    room:
-      secure: N+guYpwGfwVtlSxDKJLwOk+63Y0vRtEhEqq8DDTjaUgNeZJQV/2t46Y46Q/rb3YsdzsWUJzM10j0YzE+MXDkvLGeLuq8ud/E4elPYZXu17TfN/x5BSzZXPK7RC1konx5c5uli6mMaPKaAbb6mGi4eSr2iImFMafvf/B1ymhiz0E=
+    rooms:
+      secure: JYl+I5S7+OqYjn1ddmYoGJ/HFIqzrYiQzOP3qfVskp7a2eixwiWLbg9aPalIANg92MNrmv//5BshEsWxJpwadNDwVe7BNIErkmL1kvPorRBNAB04R+7mmcD4BXT8nbix5XyV9NDrad9V2A5gdHl37x3NQ2OKd+NgY/sFuH05R5o=
