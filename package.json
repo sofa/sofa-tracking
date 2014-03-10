@@ -1,8 +1,8 @@
 {
-  "name": "sofa-tracking-service",
+  "name": "sofa-tracking",
   "version": "0.1.0",
   "description": "Sofa Web SDK tracking service component.",
-  "main": "dist/sofa.trackingService.js",
+  "main": "dist/sofa.tracking.js",
   "scripts": {
     "test": "grunt build"
   },
@@ -12,7 +12,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/sofa/sofa-tracking-service"
+    "url": "https://github.com/sofa/sofa-tracking"
   },
   "keywords": [
     "sofa",
@@ -24,7 +24,7 @@
   "author": "Pascal Precht <pascal@couchcommerce.com>",
   "license": "GPL",
   "bugs": {
-    "url": "https://github.com/sofa/sofa-tracking-service/issues"
+    "url": "https://github.com/sofa/sofa-tracking/issues"
   },
   "dependencies": {
     "sofa-core": "0.1.x"

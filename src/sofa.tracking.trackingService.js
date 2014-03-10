@@ -1,5 +1,3 @@
-;(function (sofa, undefined) {
-
 'use strict';
 /* global sofa */
 /**
@@ -10,7 +8,7 @@
  * Abstraction layer to communicate with concrete tracker services
  * like Google Analytics.
  */
-sofa.define('sofa.TrackingService', function ($window, $http, configService) {
+sofa.define('sofa.tracking.TrackingService', function ($window, $http, configService) {
 
     var self = {};
     var trackers = self.__trackers = [];
@@ -88,5 +86,3 @@ sofa.define('sofa.TrackingService', function ($window, $http, configService) {
 
     return self;
 });
-
-}(sofa));

@@ -1,7 +1,7 @@
 'use strict';
 /* global sofa */
 
-describe('sofa.TrackingService', function () {
+describe('sofa.tracking.TrackingService', function () {
 
     var trackingService, trackerMock;
 
@@ -16,7 +16,7 @@ describe('sofa.TrackingService', function () {
             trackTransaction: function () {}
         };
 
-        trackingService = new sofa.TrackingService(window, httpService, configService);
+        trackingService = new sofa.tracking.TrackingService(window, httpService, configService);
     });
 
     it('should be defined', function () {

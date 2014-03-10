@@ -1,12 +1,12 @@
 {
-  "name": "sofa-tracking-service",
+  "name": "sofa-tracking",
   "version": "0.1.0",
   "homepage": "http://www.sofa.io",
   "authors": [
     "Pascal Precht <pascal@couchcommerce.com>"
   ],
   "description": "Sofa Web SDK tracking service component.",
-  "main": "dist/sofa.trackingService.js",
+  "main": "dist/sofa.tracking.js",
   "dependencies": {
       "sofa-core": "~0.1.x"
   },

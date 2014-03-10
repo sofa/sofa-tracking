@@ -7,7 +7,7 @@ module.exports = function (grunt) {
 
     grunt.initConfig({
 
-        component_name: 'sofa.trackingService',
+        component_name: 'sofa.tracking',
         component_sass_name: grunt.file.readJSON('bower.json').name,
         build_dir: 'dist',
 
