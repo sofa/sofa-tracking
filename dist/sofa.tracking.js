@@ -144,6 +144,9 @@ sofa.define('sofa.tracking.TrackingService', function ($window, $http, configSer
     var self = {};
     var trackers = self.__trackers = [];
 
+    //allow this service to raise events
+    sofa.observable.mixin(self);
+
     /**
      * @method addTracker
      * @memberof sofa.TrackingService
@@ -183,6 +186,9 @@ sofa.define('sofa.tracking.TrackingService', function ($window, $http, configSer
      * @param {object} eventData Event data object.
      */
     self.trackEvent = function (eventData) {
+
+        self.emit('trackEvent', self, eventData);
+
         trackers.forEach(function (tracker) {
             tracker.trackEvent(eventData);
         });
@@ -207,6 +213,8 @@ sofa.define('sofa.tracking.TrackingService', function ($window, $http, configSer
                 var transactionData = sofa.Util.toJson(response.data);
 
                 transactionData.token = token;
+
+                self.emit('trackTransaction', self, transactionData);
 
                 trackers.forEach(function (tracker) {
                     tracker.trackTransaction(transactionData);
