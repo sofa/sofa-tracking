@@ -73,14 +73,6 @@ sofa.define('sofa.tracking.GoogleAnalyticsTracker', function (options) {
             if (eventData.value) {
                 dataToBePushed.push(eventData.value);
             }
-
-            if (eventData.action === 'google_conversion' && options.conversionId) {
-                var url = 'http://www.googleadservices.com/pagead/conversion/' +
-                    options.conversionId + '/?value=' + eventData.value + '&label=' +
-                    options.conversionLabel + '&guid=ON&script=0';
-                var image = new Image(1, 1);
-                image.src = url;
-            }
         }
 
         _gaq.push(dataToBePushed);
@@ -96,6 +88,15 @@ sofa.define('sofa.tracking.GoogleAnalyticsTracker', function (options) {
      * @param {object} transactionData Transaction data object.
      */
     self.trackTransaction = function (transactionData) {
+
+        if (options.conversionId) {
+            var url = 'http://www.googleadservices.com/pagead/conversion/' +
+                options.conversionId + '/?value=' + transactionData.totals.subtotal + '&label=' +
+                options.conversionLabel + '&guid=ON&script=0';
+            var image = new Image(1, 1);
+            image.src = url;
+        }
+
         _gaq.push(['_gat._anonymizeIp']);
         _gaq.push(['_addTrans',
             transactionData.token,               // transaction ID - required
