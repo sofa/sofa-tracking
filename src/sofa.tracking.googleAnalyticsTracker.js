@@ -79,7 +79,7 @@ sofa.define('sofa.tracking.GoogleAnalyticsTracker', function (options) {
     };
 
     /**
-     * @method trackEvent
+     * @method trackTransaction
      * @memberof sofa.tracking.GoogleAnalyticsTracker
      *
      * @description
