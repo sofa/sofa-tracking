@@ -1,3 +1,13 @@
+<a name="0.3.2"></a>
+### 0.3.2 (2014-04-16)
+
+
+#### Bug Fixes
+
+* **Gruntfile:** fixes license banner ([e6ffdfdc](https://github.com/sofa/sofa-tracking/commit/e6ffdfdc2ae6820319f7e6f37ecd8d28e1589940))
+* **LICENSE:** fixes naming ([d8f3f360](https://github.com/sofa/sofa-tracking/commit/d8f3f360d5d76913b509553900a1fa4b0aa21cef))
+
+
 <a name="0.3.0"></a>
 ## 0.3.0 (2014-03-13)
 
