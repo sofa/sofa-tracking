@@ -6,8 +6,15 @@
 /* global _gaq */
 /* global location */
 /**
- * @name GoogleAnalyticsTracker
- * @namespace sofa.tracking.GoogleAnalyticsTracker
+ * @sofadoc class
+ * @name sofa.tracking.GoogleAnalyticsTracker
+ * @namespace sofa.tracking
+ *
+ * @package sofa-tracking
+ * @requiresPackage sofa-core
+ * @requiresPackage sofa-http-service
+ *
+ * @distFile dist/sofa.tracking.js
  *
  * @description
  * A Google Analytics Tracker abstraction layer to connect to the SDK's
@@ -18,7 +25,8 @@ sofa.define('sofa.tracking.GoogleAnalyticsTracker', function (options) {
     var self = {};
 
     /**
-     * @method setup
+     * @sofadoc method
+     * @name sofa.tracking.GoogleAnalyticsTracker#setup
      * @memberof sofa.tracking.GoogleAnalyticsTracker
      *
      * @description
@@ -41,7 +49,8 @@ sofa.define('sofa.tracking.GoogleAnalyticsTracker', function (options) {
     };
 
     /**
-     * @method trackEvent
+     * @sofadoc method
+     * @name sofa.tracking.GoogleAnalyticsTracker#trackEvent
      * @memberof sofa.tracking.GoogleAnalyticsTracker
      *
      * @description
@@ -79,7 +88,8 @@ sofa.define('sofa.tracking.GoogleAnalyticsTracker', function (options) {
     };
 
     /**
-     * @method trackTransaction
+     * @sofadoc method
+     * @name sofa.tracking.GoogleAnalyticsTracker#trackTransaction
      * @memberof sofa.tracking.GoogleAnalyticsTracker
      *
      * @description

@@ -1,8 +1,20 @@
 'use strict';
 /* global sofa */
 /**
- * @name TrackingService
- * @namespace sofa.TrackingService
+ * @sofadoc class
+ * @name sofa.tracking.TrackingService
+ * @namespace sofa.tracking
+ *
+ * @package sofa-tracking
+ *
+ * @requiresPackage sofa-core
+ * @requiresPackage sofa-http-service
+ *
+ * @requires window
+ * @requires sofa.HttpService
+ * @requires sofa.ConfigService
+ *
+ * @distFile dist/sofa.tracking.js
  *
  * @description
  * Abstraction layer to communicate with concrete tracker services
@@ -17,8 +29,9 @@ sofa.define('sofa.tracking.TrackingService', function ($window, $http, configSer
     sofa.observable.mixin(self);
 
     /**
-     * @method addTracker
-     * @memberof sofa.TrackingService
+     * @sofadoc method
+     * @name sofa.tracking.TrackingService#addTracker
+     * @memberof sofa.tracking.TrackingService
      *
      * @description
      * Adds a concrete tracker service implementation and also takes care
@@ -46,8 +59,9 @@ sofa.define('sofa.tracking.TrackingService', function ($window, $http, configSer
     };
 
     /**
-     * @method trackEvent
-     * @memberof sofa.TrackingService
+     * @sofadoc method
+     * @name sofa.tracking.TrackingService#trackEvent
+     * @memberof sofa.tracking.TrackingService
      *
      * @description
      * Forces all registered trackers to track an event.
@@ -64,7 +78,8 @@ sofa.define('sofa.tracking.TrackingService', function ($window, $http, configSer
     };
 
     /**
-     * @method trackTransaction
+     * @sofadoc method
+     * @name sofa.tracking.TrackingService#trackTransaction
      * @memberof sofa.TrackingService
      *
      * @description
