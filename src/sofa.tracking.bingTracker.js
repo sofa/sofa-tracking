@@ -2,8 +2,15 @@
 /* global sofa */
 /* global Image */
 /**
- * @name BingTracker
- * @namespace sofa.tracking.BingTracker
+ * @sofadoc class
+ * @name sofa.tracking.BingTracker
+ * @namespace sofa.tracking
+ *
+ * @package sofa-tracking
+ *
+ * @requiresPackage sofa-core
+ * @requiresPackage sofa-http-service
+ * @distFile dist/sofa.tracking.js
  *
  * @description
  * A Bing Tracker abstraction layer to connect to the SDK's
@@ -14,7 +21,8 @@ sofa.define('sofa.tracking.BingTracker', function (options) {
     var self = {};
 
     /**
-     * @method setup
+     * @sofadoc method
+     * @name sofa.tracking.BingTracker#setup
      * @memberof sofa.tracking.BingTracker
      *
      * @description
@@ -26,7 +34,8 @@ sofa.define('sofa.tracking.BingTracker', function (options) {
     };
 
     /**
-     * @method trackEvent
+     * @sofadoc method
+     * @name sofa.tracking.BingTracker#trackEvent
      * @memberof sofa.tracking.BingTracker
      *
      * @description
@@ -37,7 +46,8 @@ sofa.define('sofa.tracking.BingTracker', function (options) {
     };
 
     /**
-     * @method trackTransaction
+     * @sofadoc method
+     * @name sofa.tracking.BingTracker#trackTransaction
      * @memberof sofa.tracking.BingTracker
      *
      * @description
