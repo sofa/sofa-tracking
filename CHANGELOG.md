@@ -1,3 +1,17 @@
+<a name="0.4.0"></a>
+## 0.4.0 (2014-06-24)
+
+
+#### Bug Fixes
+
+* **gitignore:** ignore bower_components ([da3ba84e](https://github.com/sofa/sofa-tracking/commit/da3ba84e091c020d3dfdecf241b4af32c127ac88))
+
+
+#### Features
+
+* **grunt:** better deploying ([de6cea6e](https://github.com/sofa/sofa-tracking/commit/de6cea6e650e25ecd88ee9b6f56b02e2ea727fd1))
+
+
 <a name="0.3.2"></a>
 ### 0.3.2 (2014-04-16)
 

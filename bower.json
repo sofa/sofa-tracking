@@ -1,24 +1,24 @@
 {
-  "name": "sofa-tracking",
-  "version": "0.3.2",
-  "homepage": "http://www.sofa.io",
-  "authors": [
-    "Pascal Precht <pascal@couchcommerce.com>"
-  ],
-  "description": "Sofa Web SDK tracking service component.",
-  "main": "dist/sofa.tracking.js",
-  "dependencies": {
-      "sofa-core": "~0.1.x"
-  },
-  "devDependencies": {
-      "sofa-testing": "0.1.x"
-  },
-  "keywords": [
-    "sofa",
-    "sofa.io",
-    "web",
-    "sdk",
-    "service"
-  ],
-  "license": "GPL"
+    "name": "sofa-tracking",
+    "version": "0.4.0",
+    "homepage": "http://www.sofa.io",
+    "authors": [
+        "Pascal Precht <pascal@couchcommerce.com>"
+    ],
+    "description": "Sofa Web SDK tracking service component.",
+    "main": "dist/sofa.tracking.js",
+    "dependencies": {
+        "sofa-core": "~0.1.x"
+    },
+    "devDependencies": {
+        "sofa-testing": "0.1.x"
+    },
+    "keywords": [
+        "sofa",
+        "sofa.io",
+        "web",
+        "sdk",
+        "service"
+    ],
+    "license": "GPL"
 }
