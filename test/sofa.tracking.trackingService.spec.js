@@ -13,6 +13,7 @@ describe('sofa.tracking.TrackingService', function () {
         trackerMock = {
             setup: function () {},
             trackEvent: function () {},
+            trackAction: function () {},
             trackTransaction: function () {}
         };
 
@@ -33,6 +34,10 @@ describe('sofa.tracking.TrackingService', function () {
 
     it('should have a method trackEvent', function () {
         expect(trackingService.trackEvent).toBeDefined();
+    });
+
+    it('should have a method trackAction', function () {
+        expect(trackingService.trackAction).toBeDefined();
     });
 
     it('should have a method trackTransaction', function () {

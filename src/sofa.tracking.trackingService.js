@@ -37,6 +37,10 @@ sofa.define('sofa.tracking.TrackingService', function ($window, $http, configSer
             throw new Error('tracker must implement a trackEvent method');
         }
 
+        if (!tracker.trackAction) {
+            throw new Error('tracker must implement a trackAction method');
+        }
+
         if (!tracker.trackTransaction) {
             throw new Error('tracker must implement a trackTransaction method');
         }
@@ -60,6 +64,24 @@ sofa.define('sofa.tracking.TrackingService', function ($window, $http, configSer
 
         trackers.forEach(function (tracker) {
             tracker.trackEvent(eventData);
+        });
+    };
+
+    /**
+     * @method trackAction
+     * @memberof sofa.TrackingService
+     *
+     * @description
+     * Forces all registered trackers to track an action.
+     *
+     * @param {object} eventData Event data object.
+     */
+    self.trackAction = function (action, actionData) {
+
+        self.emit('trackAction', self, action, actionData);
+
+        trackers.forEach(function (tracker) {
+            tracker.trackAction(action, actionData);
         });
     };
 

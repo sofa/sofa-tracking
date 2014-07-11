@@ -37,6 +37,17 @@ sofa.define('sofa.tracking.BingTracker', function (options) {
     };
 
     /**
+     * @method trackAction
+     * @memberof sofa.tracking.BingTracker
+     *
+     * @description
+     * Dummy tracking method for Bing, only transactions can be tracked.
+     */
+    self.trackAction = function () {
+
+    };
+
+    /**
      * @method trackTransaction
      * @memberof sofa.tracking.BingTracker
      *

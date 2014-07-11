@@ -79,6 +79,17 @@ sofa.define('sofa.tracking.GoogleAnalyticsTracker', function (options) {
     };
 
     /**
+     * @method trackAction
+     * @memberof sofa.tracking.GoogleAnalyticsTracker
+     *
+     * @description
+     * Dummy tracking method for GA, actions cannot be tracked.
+     */
+    self.trackAction = function () {
+
+    };
+
+    /**
      * @method trackTransaction
      * @memberof sofa.tracking.GoogleAnalyticsTracker
      *
