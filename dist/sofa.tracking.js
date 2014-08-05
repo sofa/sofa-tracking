@@ -1,5 +1,5 @@
 /**
- * sofa-tracking - v0.4.0 - 2014-06-24
+ * sofa-tracking - v0.5.0 - 2014-08-05
  * http://www.sofa.io
  *
  * Copyright (c) 2014 CouchCommerce GmbH (http://www.couchcommerce.com / http://www.sofa.io) and other contributors
@@ -12,8 +12,15 @@
 /* global sofa */
 /* global Image */
 /**
- * @name BingTracker
- * @namespace sofa.tracking.BingTracker
+ * @sofadoc class
+ * @name sofa.tracking.BingTracker
+ * @namespace sofa.tracking
+ *
+ * @package sofa-tracking
+ *
+ * @requiresPackage sofa-core
+ * @requiresPackage sofa-http-service
+ * @distFile dist/sofa.tracking.js
  *
  * @description
  * A Bing Tracker abstraction layer to connect to the SDK's
@@ -24,7 +31,8 @@ sofa.define('sofa.tracking.BingTracker', function (options) {
     var self = {};
 
     /**
-     * @method setup
+     * @sofadoc method
+     * @name sofa.tracking.BingTracker#setup
      * @memberof sofa.tracking.BingTracker
      *
      * @description
@@ -36,7 +44,8 @@ sofa.define('sofa.tracking.BingTracker', function (options) {
     };
 
     /**
-     * @method trackEvent
+     * @sofadoc method
+     * @name sofa.tracking.BingTracker#trackEvent
      * @memberof sofa.tracking.BingTracker
      *
      * @description
@@ -47,7 +56,8 @@ sofa.define('sofa.tracking.BingTracker', function (options) {
     };
 
     /**
-     * @method trackTransaction
+     * @sofadoc method
+     * @name sofa.tracking.BingTracker#trackTransaction
      * @memberof sofa.tracking.BingTracker
      *
      * @description
@@ -77,8 +87,15 @@ sofa.define('sofa.tracking.BingTracker', function (options) {
 /* global _gaq */
 /* global location */
 /**
- * @name GoogleAnalyticsTracker
- * @namespace sofa.tracking.GoogleAnalyticsTracker
+ * @sofadoc class
+ * @name sofa.tracking.GoogleAnalyticsTracker
+ * @namespace sofa.tracking
+ *
+ * @package sofa-tracking
+ * @requiresPackage sofa-core
+ * @requiresPackage sofa-http-service
+ *
+ * @distFile dist/sofa.tracking.js
  *
  * @description
  * A Google Analytics Tracker abstraction layer to connect to the SDK's
@@ -89,7 +106,8 @@ sofa.define('sofa.tracking.GoogleAnalyticsTracker', function (options) {
     var self = {};
 
     /**
-     * @method setup
+     * @sofadoc method
+     * @name sofa.tracking.GoogleAnalyticsTracker#setup
      * @memberof sofa.tracking.GoogleAnalyticsTracker
      *
      * @description
@@ -112,7 +130,8 @@ sofa.define('sofa.tracking.GoogleAnalyticsTracker', function (options) {
     };
 
     /**
-     * @method trackEvent
+     * @sofadoc method
+     * @name sofa.tracking.GoogleAnalyticsTracker#trackEvent
      * @memberof sofa.tracking.GoogleAnalyticsTracker
      *
      * @description
@@ -150,7 +169,8 @@ sofa.define('sofa.tracking.GoogleAnalyticsTracker', function (options) {
     };
 
     /**
-     * @method trackTransaction
+     * @sofadoc method
+     * @name sofa.tracking.GoogleAnalyticsTracker#trackTransaction
      * @memberof sofa.tracking.GoogleAnalyticsTracker
      *
      * @description
@@ -202,8 +222,20 @@ sofa.define('sofa.tracking.GoogleAnalyticsTracker', function (options) {
 'use strict';
 /* global sofa */
 /**
- * @name TrackingService
- * @namespace sofa.TrackingService
+ * @sofadoc class
+ * @name sofa.tracking.TrackingService
+ * @namespace sofa.tracking
+ *
+ * @package sofa-tracking
+ *
+ * @requiresPackage sofa-core
+ * @requiresPackage sofa-http-service
+ *
+ * @requires window
+ * @requires sofa.HttpService
+ * @requires sofa.ConfigService
+ *
+ * @distFile dist/sofa.tracking.js
  *
  * @description
  * Abstraction layer to communicate with concrete tracker services
@@ -218,8 +250,9 @@ sofa.define('sofa.tracking.TrackingService', function ($window, $http, configSer
     sofa.observable.mixin(self);
 
     /**
-     * @method addTracker
-     * @memberof sofa.TrackingService
+     * @sofadoc method
+     * @name sofa.tracking.TrackingService#addTracker
+     * @memberof sofa.tracking.TrackingService
      *
      * @description
      * Adds a concrete tracker service implementation and also takes care
@@ -247,8 +280,9 @@ sofa.define('sofa.tracking.TrackingService', function ($window, $http, configSer
     };
 
     /**
-     * @method trackEvent
-     * @memberof sofa.TrackingService
+     * @sofadoc method
+     * @name sofa.tracking.TrackingService#trackEvent
+     * @memberof sofa.tracking.TrackingService
      *
      * @description
      * Forces all registered trackers to track an event.
@@ -265,7 +299,8 @@ sofa.define('sofa.tracking.TrackingService', function ($window, $http, configSer
     };
 
     /**
-     * @method trackTransaction
+     * @sofadoc method
+     * @name sofa.tracking.TrackingService#trackTransaction
      * @memberof sofa.TrackingService
      *
      * @description

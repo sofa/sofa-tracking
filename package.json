@@ -1,6 +1,6 @@
 {
     "name": "sofa-tracking",
-    "version": "0.4.0",
+    "version": "0.5.0",
     "description": "Sofa Web SDK tracking service component.",
     "main": "dist/sofa.tracking.js",
     "homepage": "http://www.sofa.io",
