@@ -1,3 +1,12 @@
+<a name="0.6.0"></a>
+## 0.6.0 (2014-11-05)
+
+
+#### Features
+
+* ***:** add GAU tracker ([1eab4b36](https://github.com/sofa/sofa-tracking/commit/1eab4b362e910e2f9a8ad49d6c271af7a6739b9d))
+
+
 <a name="0.5.0"></a>
 ## 0.5.0 (2014-08-05)
 
