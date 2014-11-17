@@ -1,3 +1,12 @@
+<a name="0.6.2"></a>
+### 0.6.2 (2014-11-17)
+
+
+#### Bug Fixes
+
+* **gau:** more fixes for generic CC app tracking ([589b79eb](https://github.com/sofa/sofa-tracking/commit/589b79eb04d3d30f5508c17dee77ea84646bdbb4))
+
+
 <a name="0.6.1"></a>
 ### 0.6.1 (2014-11-17)
 
