@@ -89,18 +89,18 @@ sofa.define('sofa.tracking.GoogleAnalyticsUniversalTracker', function (options) 
                 'name': item.name,
                 'category': null,
                 'brand': null,
-                'variant': (item.variant && item.variant.id) ? item.variant.id : null,
-                'price': item.price / 100.0,
-                'quantity': item.quantity
+                'variant': null,
+                'price': item.price,
+                'quantity': item.qty
             });
         });
 
         ga('ec:setAction', 'purchase', {
-            'id': transactionData.id,
+            'id': transactionData.token,
             'affiliation': null,
-            'revenue': transactionData.totals.grandTotal / 100.0,
-            'tax': transactionData.totals.taxSum / 100.0,
-            'shipping': transactionData.totals.shippingAmount / 100.0,
+            'revenue': transactionData.totals.grandtotal,
+            'tax': transactionData.totals.vat,
+            'shipping': transactionData.totals.shipping,
             'coupon': null
         });
 
