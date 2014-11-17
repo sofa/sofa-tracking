@@ -1,3 +1,12 @@
+<a name="0.6.1"></a>
+### 0.6.1 (2014-11-17)
+
+
+#### Bug Fixes
+
+* **gua:** check for empty variants ([7e45137e](https://github.com/sofa/sofa-tracking/commit/7e45137ef3bc1f6c8b8c4c4107266e407f4ff89a))
+
+
 <a name="0.6.0"></a>
 ## 0.6.0 (2014-11-05)
 
