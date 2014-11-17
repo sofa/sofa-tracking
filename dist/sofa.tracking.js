@@ -1,5 +1,5 @@
 /**
- * sofa-tracking - v0.6.0 - 2014-11-05
+ * sofa-tracking - v0.6.0 - 2014-11-17
  * http://www.sofa.io
  *
  * Copyright (c) 2014 CouchCommerce GmbH (http://www.couchcommerce.com / http://www.sofa.io) and other contributors
@@ -273,6 +273,7 @@ sofa.define('sofa.tracking.GoogleAnalyticsUniversalTracker', function (options) 
         ga('create', options.accountNumber, 'auto');
         ga('require', 'linkid', 'linkid.js');
         ga('require', 'displayfeatures');
+        ga('require', 'ec');
     };
 
     /**
@@ -303,15 +304,13 @@ sofa.define('sofa.tracking.GoogleAnalyticsUniversalTracker', function (options) 
      */
     self.trackTransaction = function (transactionData) {
 
-        ga('require', 'ec');
-
         transactionData.items.forEach(function (item) {
             ga('ec:addProduct', {
                 'id': item.id,
                 'name': item.name,
                 'category': null,
                 'brand': null,
-                'variant': item.variant.id,
+                'variant': (item.variant && item.variant.id) ? item.variant.id : null,
                 'price': item.price / 100.0,
                 'quantity': item.quantity
             });
