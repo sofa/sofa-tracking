@@ -66,9 +66,17 @@ sofa.define('sofa.tracking.GoogleAnalyticsUniversalTracker', function (options) 
      *
      * @param {object} eventData Event data object.
      */
-    self.trackEvent = function () {
+    self.trackEvent = function (eventData) {
         ga('set', 'anonymizeIp', true);
-        ga('send', 'pageview');
+
+        eventData.category = eventData.category || '';
+        eventData.action = eventData.action || '';
+        eventData.label = eventData.label || '';
+        eventData.value = eventData.value || '';
+
+        if (eventData.category === 'pageView') {
+            ga('send', 'pageview', eventData.label);
+        }
     };
 
     /**
