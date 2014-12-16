@@ -1,3 +1,12 @@
+<a name="0.6.3"></a>
+### 0.6.3 (2014-12-16)
+
+
+#### Bug Fixes
+
+* **gua:** pass URL instead of detecting ([aead4bfc](https://github.com/sofa/sofa-tracking/commit/aead4bfc9a224385d2121e10e7168edb9641ccd9))
+
+
 <a name="0.6.2"></a>
 ### 0.6.2 (2014-11-17)
 
