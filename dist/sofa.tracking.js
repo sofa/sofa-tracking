@@ -1,5 +1,5 @@
 /**
- * sofa-tracking - v0.6.3 - 2014-12-16
+ * sofa-tracking - v0.6.3 - 2015-01-23
  * http://www.sofa.io
  *
  * Copyright (c) 2014 CouchCommerce GmbH (http://www.couchcommerce.com / http://www.sofa.io) and other contributors
@@ -297,6 +297,14 @@ sofa.define('sofa.tracking.GoogleAnalyticsUniversalTracker', function (options) 
 
         if (eventData.category === 'pageView') {
             ga('send', 'pageview', eventData.label);
+        } else {
+            ga('send', {
+                'hitType': 'event',
+                'eventCategory': eventData.category,
+                'eventAction': eventData.action,
+                'eventLabel': eventData.label,
+                'eventValue': eventData.value
+            });
         }
     };
 

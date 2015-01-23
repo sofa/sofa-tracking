@@ -76,6 +76,14 @@ sofa.define('sofa.tracking.GoogleAnalyticsUniversalTracker', function (options) 
 
         if (eventData.category === 'pageView') {
             ga('send', 'pageview', eventData.label);
+        } else {
+            ga('send', {
+                'hitType': 'event',
+                'eventCategory': eventData.category,
+                'eventAction': eventData.action,
+                'eventLabel': eventData.label,
+                'eventValue': eventData.value
+            });
         }
     };
 
