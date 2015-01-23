@@ -101,7 +101,7 @@ sofa.define('sofa.tracking.GoogleAnalyticsUniversalTracker', function (options) 
 
         transactionData.items.forEach(function (item) {
             ga('ec:addProduct', {
-                'id': item.id,
+                'id': item.sku,
                 'name': item.name,
                 'category': null,
                 'brand': null,
