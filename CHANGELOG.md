@@ -1,3 +1,12 @@
+<a name="0.7.1"></a>
+### 0.7.1 (2015-01-23)
+
+
+#### Bug Fixes
+
+* **ga-universal-tracker:** track product's sku instead of its id ([d904f472](https://github.com/sofa/sofa-tracking/commit/d904f472780e6e879ca7c5840511458183a7db05))
+
+
 <a name="0.7.0"></a>
 ## 0.7.0 (2015-01-23)
 

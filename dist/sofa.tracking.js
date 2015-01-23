@@ -1,5 +1,5 @@
 /**
- * sofa-tracking - v0.7.0 - 2015-01-23
+ * sofa-tracking - v0.7.1 - 2015-01-23
  * http://www.sofa.io
  *
  * Copyright (c) 2014 CouchCommerce GmbH (http://www.couchcommerce.com / http://www.sofa.io) and other contributors
