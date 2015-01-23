@@ -1,3 +1,12 @@
+<a name="0.7.0"></a>
+## 0.7.0 (2015-01-23)
+
+
+#### Features
+
+* **ga-universal-tracker:** add event tracking ([5550e9cf](https://github.com/sofa/sofa-tracking/commit/5550e9cfe9d83783d1541119deb7f794db21dd26))
+
+
 <a name="0.6.3"></a>
 ### 0.6.3 (2014-12-16)
 
