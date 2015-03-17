@@ -6,7 +6,7 @@
         "Pascal Precht <pascal@couchcommerce.com>"
     ],
     "description": "Sofa Web SDK tracking service component.",
-    "main": "dist/sofa.tracking.js",
+    "main": "dist/sofaTracking.js",
     "dependencies": {
         "sofa-core": "~0.1.x"
     },
