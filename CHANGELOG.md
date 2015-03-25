@@ -1,3 +1,11 @@
+### 0.7.2 (2015-03-25)
+
+
+#### Bug Fixes
+
+* **bower.json:** fixes naming ([df270b42](https://github.com/sofa/sofa-tracking/commit/df270b4287ded268b8ae6240c45e084027f466f2), closes [#2](https://github.com/sofa/sofa-tracking/issues/2))
+
+
 ### 0.7.1 (2015-02-04)
 
 
