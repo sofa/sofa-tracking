@@ -1,3 +1,11 @@
+## 0.8.0 (2015-03-31)
+
+
+#### Bug Fixes
+
+* **google-adwords-tracker:** script loading ([7db5f838](https://github.com/sofa/sofa-tracking/commit/7db5f838293fa0e32334f2072dbea38a486abb1d))
+
+
 ### 0.7.3 (2015-03-31)
 
 
