@@ -1,5 +1,5 @@
 /**
- * sofa-tracking - v0.7.2 - Wed Mar 25 2015 15:18:33 GMT+0100 (CET)
+ * sofa-tracking - v0.7.3 - Tue Mar 31 2015 17:28:41 GMT+0200 (CEST)
  * http://www.sofa.io
  *
  * Copyright (c) 2014 CouchCommerce GmbH (http://www.couchcommerce.com / http://www.sofa.io) and other contributors
@@ -74,6 +74,73 @@ sofa.define('sofa.tracking.BingTracker', function (options) {
         var image = new Image(1, 1);
         image.src = url;
     };
+
+    return self;
+});
+
+'use strict';
+/* global sofa */
+
+/**
+ * @sofadoc class
+ * @name sofa.tracking.GoogleAdwordsConversionTracker
+ * @namespace sofa.tracking
+ *
+ * @package sofa-tracking
+ * @requiresPackage sofa-core
+ * @requiresPackage sofa-http-service
+ *
+ * @distFile dist/sofa.tracking.js
+ *
+ * @description
+ * A Google AdWords Conversion Tracker abstraction layer to connect to the SDK's
+ * tracker interface.
+ */
+sofa.define('sofa.tracking.GoogleAdwordsConversionTracker', function () {
+
+    var self = {};
+
+    /**
+     * @sofadoc method
+     * @name sofa.tracking.GoogleAdwordsConversionTracker#trackConversion
+     * @memberof sofa.tracking.GoogleAdwordsConversionTracker
+     *
+     * @description
+     *
+     *
+     * @param {object} conversionData Event data object.
+     */
+    /* jshint ignore:start */
+    self.trackConversion = function (conversionData) {
+
+        var google_conversion_id = conversionData.id,
+            google_conversion_language = conversionData.lang,
+            google_conversion_format = conversionData.format,
+            google_conversion_color = conversionData.color,
+            google_conversion_label = conversionData.label,
+            google_conversion_value = conversionData.value,
+            google_conversion_currency = conversionData.currency,
+            google_remarketing_only = conversionData.remarketing;
+
+        var oldDocumentWrite = document.write;
+
+        // change document.write temporary
+        document.write = function (node) {
+            document.body.appendChild(node);
+        };
+
+        (function () {
+            var s = document.createElement('script');
+            s.src = '//www.googleadservices.com/pagead/conversion.js';
+            s.async = true;
+            s.onload = function () {
+                setTimeout(function () {
+                    document.write = oldDocumentWrite;
+                }, 100);
+            };
+        }());
+    };
+    /* jshint ignore:end */
 
     return self;
 });
@@ -385,26 +452,15 @@ sofa.define('sofa.tracking.TrackingService', function ($window, $http, configSer
      *
      * @description
      * Adds a concrete tracker service implementation and also takes care
-     * of the setup. It'll throw exceptions if the tracker service
-     * doesn't implement the needed API.
+     * of the setup.
      *
      * @param {object} tracker Concrete tracker implementation.
      */
     self.addTracker = function (tracker) {
-
-        if (!tracker.setup) {
-            throw new Error('tracker must implement a setup method');
+        if (tracker.setup && typeof tracker.setup === 'function') {
+            tracker.setup();
         }
 
-        if (!tracker.trackEvent) {
-            throw new Error('tracker must implement a trackEvent method');
-        }
-
-        if (!tracker.trackTransaction) {
-            throw new Error('tracker must implement a trackTransaction method');
-        }
-
-        tracker.setup();
         trackers.push(tracker);
     };
 
@@ -423,7 +479,9 @@ sofa.define('sofa.tracking.TrackingService', function ($window, $http, configSer
         self.emit('trackEvent', self, eventData);
 
         trackers.forEach(function (tracker) {
-            tracker.trackEvent(eventData);
+            if (tracker.trackEvent && typeof tracker.trackEvent === 'function') {
+                tracker.trackEvent(eventData);
+            }
         });
     };
 
@@ -451,10 +509,33 @@ sofa.define('sofa.tracking.TrackingService', function ($window, $http, configSer
                 self.emit('trackTransaction', self, transactionData);
 
                 trackers.forEach(function (tracker) {
-                    tracker.trackTransaction(transactionData);
+                    if (tracker.trackTransaction && typeof tracker.trackTransaction === 'function') {
+                        tracker.trackTransaction(transactionData);
+                    }
                 });
             });
 
+    };
+
+    /**
+     * @sofadoc method
+     * @name sofa.tracking.TrackingService#trackConversion
+     * @memberof sofa.TrackingService
+     *
+     * @description
+     * Forces all registered trackers to track a conversion.
+     *
+     * @param {obj} conversion data object.
+     */
+    self.trackConversion = function (conversionData) {
+
+        self.emit('trackConversion', self, conversionData);
+
+        trackers.forEach(function (tracker) {
+            if (tracker.trackConversion && typeof tracker.trackConversion === 'function') {
+                tracker.trackConversion(conversionData);
+            }
+        });
     };
 
     return self;

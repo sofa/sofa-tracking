@@ -35,26 +35,15 @@ sofa.define('sofa.tracking.TrackingService', function ($window, $http, configSer
      *
      * @description
      * Adds a concrete tracker service implementation and also takes care
-     * of the setup. It'll throw exceptions if the tracker service
-     * doesn't implement the needed API.
+     * of the setup.
      *
      * @param {object} tracker Concrete tracker implementation.
      */
     self.addTracker = function (tracker) {
-
-        if (!tracker.setup) {
-            throw new Error('tracker must implement a setup method');
+        if (tracker.setup && typeof tracker.setup === 'function') {
+            tracker.setup();
         }
 
-        if (!tracker.trackEvent) {
-            throw new Error('tracker must implement a trackEvent method');
-        }
-
-        if (!tracker.trackTransaction) {
-            throw new Error('tracker must implement a trackTransaction method');
-        }
-
-        tracker.setup();
         trackers.push(tracker);
     };
 
@@ -73,7 +62,9 @@ sofa.define('sofa.tracking.TrackingService', function ($window, $http, configSer
         self.emit('trackEvent', self, eventData);
 
         trackers.forEach(function (tracker) {
-            tracker.trackEvent(eventData);
+            if (tracker.trackEvent && typeof tracker.trackEvent === 'function') {
+                tracker.trackEvent(eventData);
+            }
         });
     };
 
@@ -101,10 +92,33 @@ sofa.define('sofa.tracking.TrackingService', function ($window, $http, configSer
                 self.emit('trackTransaction', self, transactionData);
 
                 trackers.forEach(function (tracker) {
-                    tracker.trackTransaction(transactionData);
+                    if (tracker.trackTransaction && typeof tracker.trackTransaction === 'function') {
+                        tracker.trackTransaction(transactionData);
+                    }
                 });
             });
 
+    };
+
+    /**
+     * @sofadoc method
+     * @name sofa.tracking.TrackingService#trackConversion
+     * @memberof sofa.TrackingService
+     *
+     * @description
+     * Forces all registered trackers to track a conversion.
+     *
+     * @param {obj} conversion data object.
+     */
+    self.trackConversion = function (conversionData) {
+
+        self.emit('trackConversion', self, conversionData);
+
+        trackers.forEach(function (tracker) {
+            if (tracker.trackConversion && typeof tracker.trackConversion === 'function') {
+                tracker.trackConversion(conversionData);
+            }
+        });
     };
 
     return self;
