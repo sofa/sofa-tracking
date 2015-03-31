@@ -1,5 +1,5 @@
 /**
- * sofa-tracking - v0.7.3 - Tue Mar 31 2015 17:39:20 GMT+0200 (CEST)
+ * sofa-tracking - v0.8.0 - Tue Mar 31 2015 18:00:54 GMT+0200 (CEST)
  * http://www.sofa.io
  *
  * Copyright (c) 2014 CouchCommerce GmbH (http://www.couchcommerce.com / http://www.sofa.io) and other contributors
@@ -132,12 +132,13 @@ sofa.define('sofa.tracking.GoogleAdwordsConversionTracker', function () {
         (function () {
             var s = document.createElement('script');
             s.src = '//www.googleadservices.com/pagead/conversion.js';
-            s.async = true;
+            s.async = true,
             s.onload = function () {
                 setTimeout(function () {
                     document.write = oldDocumentWrite;
                 }, 100);
             };
+            document.body.appendChild(s);
         }());
     };
     /* jshint ignore:end */

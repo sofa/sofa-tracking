@@ -52,12 +52,13 @@ sofa.define('sofa.tracking.GoogleAdwordsConversionTracker', function () {
         (function () {
             var s = document.createElement('script');
             s.src = '//www.googleadservices.com/pagead/conversion.js';
-            s.async = true;
+            s.async = true,
             s.onload = function () {
                 setTimeout(function () {
                     document.write = oldDocumentWrite;
                 }, 100);
             };
+            document.body.appendChild(s);
         }());
     };
     /* jshint ignore:end */
