@@ -1,5 +1,5 @@
 /**
- * sofa-tracking - v0.8.0 - Tue Mar 31 2015 18:06:35 GMT+0200 (CEST)
+ * sofa-tracking - v0.8.1 - Fri Apr 17 2015 16:20:32 GMT+0200 (CEST)
  * http://www.sofa.io
  *
  * Copyright (c) 2014 CouchCommerce GmbH (http://www.couchcommerce.com / http://www.sofa.io) and other contributors
@@ -381,37 +381,53 @@ sofa.define('sofa.tracking.GoogleAnalyticsUniversalTracker', function (options) 
      * @memberof sofa.tracking.GoogleAnalyticsUniversalTracker
      *
      * @description
-     * Pushes transaction data using the Google Analytics Universal Ecommerce Tracking API
+     * Pushes transaction data using the Google Analytics Universal Enhanced Ecommerce Tracking API
      *
      * @param {object} transactionData Transaction data object.
      */
     self.trackTransaction = function (transactionData) {
 
         transactionData.items.forEach(function (item) {
-            ga('ec:addProduct', {
-                'id': item.sku,
-                'name': item.name,
-                'category': null,
-                'brand': null,
-                'variant': null,
-                'price': item.price,
-                'quantity': item.qty
-            });
+            ga('ec:addProduct', self.decorators.transaction.addProduct(item));
         });
 
-        ga('ec:setAction', 'purchase', {
-            'id': transactionData.token,
-            'affiliation': null,
-            'revenue': transactionData.totals.grandtotal,
-            'tax': transactionData.totals.vat,
-            'shipping': transactionData.totals.shipping,
-            'coupon': null
-        });
+        ga('ec:setAction', 'purchase', self.decorators.transaction.purchase(transactionData));
 
         ga('send', 'pageview', {
             'anonymizeIp': true
         });
     };
+
+    self.decorators = {
+        transaction: {
+            addProduct: function (item) {
+                return {
+                    id: item.sku,
+                    name: item.name,
+                    category: null,
+                    brand: null,
+                    variant: null,
+                    price: item.price,
+                    quantity: item.qty
+                };
+            },
+            purchase: function (transactionData) {
+                return {
+                    id: transactionData.token,
+                    affiliation: null,
+                    revenue: transactionData.totals.grandtotal,
+                    tax: transactionData.totals.vat,
+                    shipping: transactionData.totals.shipping,
+                    coupon: null
+                };
+            }
+        }
+    };
+
+    // FIXME: this doesn't extend, it merely overwrites...
+    if (options.decorators) {
+        sofa.Util.extend(self.decorators, options.decorators);
+    }
 
     return self;
 });
