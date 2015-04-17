@@ -1,3 +1,11 @@
+## 0.9.0 (2015-04-17)
+
+
+#### Bug Fixes
+
+* ***:** add missing dist file ([6e3d0b36](https://github.com/sofa/sofa-tracking/commit/6e3d0b366d6d4eeab19be4f96d21fdcda3076b46))
+
+
 ### 0.8.1 (2015-04-17)
 
 
