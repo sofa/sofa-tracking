@@ -1,3 +1,11 @@
+### 0.9.1 (2015-04-17)
+
+
+#### Bug Fixes
+
+* **transaction-tracking:** remove token dependency ([a32acba6](https://github.com/sofa/sofa-tracking/commit/a32acba6557291bee369225a1921d3af3de543a7))
+
+
 ## 0.9.0 (2015-04-17)
 
 

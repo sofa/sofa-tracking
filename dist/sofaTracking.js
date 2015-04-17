@@ -1,5 +1,5 @@
 /**
- * sofa-tracking - v0.9.1 - Fri Apr 17 2015 19:13:12 GMT+0200 (CEST)
+ * sofa-tracking - v0.9.1 - Fri Apr 17 2015 19:21:01 GMT+0200 (CEST)
  * http://www.sofa.io
  *
  * Copyright (c) 2014 CouchCommerce GmbH (http://www.couchcommerce.com / http://www.sofa.io) and other contributors
@@ -297,7 +297,6 @@ sofa.define('sofa.tracking.GoogleAnalyticsTracker', function (options) {
  *
  * @package sofa-tracking
  * @requiresPackage sofa-core
- * @requiresPackage sofa-http-service
  *
  * @distFile dist/sofa.tracking.js
  *
@@ -442,11 +441,8 @@ sofa.define('sofa.tracking.GoogleAnalyticsUniversalTracker', function (options) 
  * @package sofa-tracking
  *
  * @requiresPackage sofa-core
- * @requiresPackage sofa-http-service
  *
  * @requires window
- * @requires sofa.HttpService
- * @requires sofa.ConfigService
  *
  * @distFile dist/sofa.tracking.js
  *
