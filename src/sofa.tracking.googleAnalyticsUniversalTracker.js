@@ -9,7 +9,6 @@
  *
  * @package sofa-tracking
  * @requiresPackage sofa-core
- * @requiresPackage sofa-http-service
  *
  * @distFile dist/sofa.tracking.js
  *

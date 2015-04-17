@@ -8,11 +8,8 @@
  * @package sofa-tracking
  *
  * @requiresPackage sofa-core
- * @requiresPackage sofa-http-service
  *
  * @requires window
- * @requires sofa.HttpService
- * @requires sofa.ConfigService
  *
  * @distFile dist/sofa.tracking.js
  *
@@ -20,7 +17,7 @@
  * Abstraction layer to communicate with concrete tracker services
  * like Google Analytics.
  */
-sofa.define('sofa.tracking.TrackingService', function ($window, $http, configService) {
+sofa.define('sofa.tracking.TrackingService', function () {
 
     var self = {};
     var trackers = self.__trackers = [];
@@ -74,30 +71,19 @@ sofa.define('sofa.tracking.TrackingService', function ($window, $http, configSer
      * @memberof sofa.TrackingService
      *
      * @description
-     * First requests information about a token from the backend, then
-     * forces all registered trackers to track the associated transaction.
+     * Forces all registered trackers to track the associated transaction.
      *
-     * @param {string} token.
+     * @param {obj} transactionData.
      */
-    self.trackTransaction = function (token) {
+    self.trackTransaction = function (transactionData) {
 
-        var requestTransactionDataUrl = configService.get('checkoutUrl') + 'summaryfin.php';
+        self.emit('trackTransaction', self, transactionData);
 
-        $http.get(requestTransactionDataUrl + '?token=' + token + '&details=get')
-            .then(function (response) {
-                var transactionData = sofa.Util.toJson(response.data);
-
-                transactionData.token = token;
-
-                self.emit('trackTransaction', self, transactionData);
-
-                trackers.forEach(function (tracker) {
-                    if (tracker.trackTransaction && typeof tracker.trackTransaction === 'function') {
-                        tracker.trackTransaction(transactionData);
-                    }
-                });
-            });
-
+        trackers.forEach(function (tracker) {
+            if (tracker.trackTransaction && typeof tracker.trackTransaction === 'function') {
+                tracker.trackTransaction(transactionData);
+            }
+        });
     };
 
     /**
