@@ -1,3 +1,11 @@
+### 0.8.1 (2015-04-17)
+
+
+#### Features
+
+* **GoogleUniversalTracker:** allow decorating the tracking object ([1c9e48c7](https://github.com/sofa/sofa-tracking/commit/1c9e48c7df0d56ad95cfa04373418fd753186622))
+
+
 ## 0.8.0 (2015-03-31)
 
 
