@@ -1,5 +1,5 @@
 /**
- * sofa-tracking - v0.9.2 - Wed May 06 2015 18:30:25 GMT+0200 (CEST)
+ * sofa-tracking - v0.9.3 - Wed May 06 2015 18:42:46 GMT+0200 (CEST)
  * http://www.sofa.io
  *
  * Copyright (c) 2014 CouchCommerce GmbH (http://www.couchcommerce.com / http://www.sofa.io) and other contributors
