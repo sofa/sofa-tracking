@@ -1,3 +1,11 @@
+### 0.9.2 (2015-05-06)
+
+
+#### Bug Fixes
+
+* **google-adwords-tracker:** make tracking vars global ([df186cf2](https://github.com/sofa/sofa-tracking/commit/df186cf29ea4afbae52d42ef5121c0b33ed1bbb1))
+
+
 ### 0.9.1 (2015-04-17)
 
 
