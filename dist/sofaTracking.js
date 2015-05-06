@@ -1,5 +1,5 @@
 /**
- * sofa-tracking - v0.9.1 - Fri Apr 17 2015 19:21:01 GMT+0200 (CEST)
+ * sofa-tracking - v0.9.2 - Wed May 06 2015 18:26:32 GMT+0200 (CEST)
  * http://www.sofa.io
  *
  * Copyright (c) 2014 CouchCommerce GmbH (http://www.couchcommerce.com / http://www.sofa.io) and other contributors
@@ -113,14 +113,14 @@ sofa.define('sofa.tracking.GoogleAdwordsConversionTracker', function () {
     /* jshint ignore:start */
     self.trackConversion = function (conversionData) {
 
-        var google_conversion_id = conversionData.id,
-            google_conversion_language = conversionData.lang,
-            google_conversion_format = conversionData.format,
-            google_conversion_color = conversionData.color,
-            google_conversion_label = conversionData.label,
-            google_conversion_value = conversionData.value,
-            google_conversion_currency = conversionData.currency,
-            google_remarketing_only = conversionData.remarketing;
+        window.google_conversion_id = conversionData.id;
+        window.google_conversion_language = conversionData.lang;
+        window.google_conversion_format = conversionData.format;
+        window.google_conversion_color = conversionData.color;
+        window.google_conversion_label = conversionData.label;
+        window.google_conversion_value = conversionData.value;
+        window.google_conversion_currency = conversionData.currency;
+        window.google_remarketing_only = conversionData.remarketing;
 
         var oldDocumentWrite = document.write;
 

@@ -33,14 +33,14 @@ sofa.define('sofa.tracking.GoogleAdwordsConversionTracker', function () {
     /* jshint ignore:start */
     self.trackConversion = function (conversionData) {
 
-        var google_conversion_id = conversionData.id,
-            google_conversion_language = conversionData.lang,
-            google_conversion_format = conversionData.format,
-            google_conversion_color = conversionData.color,
-            google_conversion_label = conversionData.label,
-            google_conversion_value = conversionData.value,
-            google_conversion_currency = conversionData.currency,
-            google_remarketing_only = conversionData.remarketing;
+        window.google_conversion_id = conversionData.id;
+        window.google_conversion_language = conversionData.lang;
+        window.google_conversion_format = conversionData.format;
+        window.google_conversion_color = conversionData.color;
+        window.google_conversion_label = conversionData.label;
+        window.google_conversion_value = conversionData.value;
+        window.google_conversion_currency = conversionData.currency;
+        window.google_remarketing_only = conversionData.remarketing;
 
         var oldDocumentWrite = document.write;
 
