@@ -1,3 +1,11 @@
+### 0.9.4 (2015-05-11)
+
+
+#### Bug Fixes
+
+* **google-adwords-conversion-tracker:** to use async script ([c3c6a705](https://github.com/sofa/sofa-tracking/commit/c3c6a7056c2a8e93e44bc0f30b82eefdf96b188f))
+
+
 ### 0.9.3 (2015-05-06)
 
 
