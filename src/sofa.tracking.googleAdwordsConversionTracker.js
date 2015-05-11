@@ -1,5 +1,5 @@
 'use strict';
-/* global sofa */
+/* global sofa, document */
 
 /**
  * @sofadoc class
@@ -22,44 +22,44 @@ sofa.define('sofa.tracking.GoogleAdwordsConversionTracker', function () {
 
     /**
      * @sofadoc method
+     * @name sofa.tracking.GoogleAdwordsConversionTracker#setup
+     * @memberof sofa.tracking.GoogleAdwordsConversionTracker
+     *
+     * @description
+     *
+     *
+     */
+    self.setup = function () {
+        (function () {
+            var s = document.createElement('script');
+            s.src = '//www.googleadservices.com/pagead/conversion_async.js';
+            s.async = true;
+            document.body.appendChild(s);
+        }());
+    };
+
+    /**
+     * @sofadoc method
      * @name sofa.tracking.GoogleAdwordsConversionTracker#trackConversion
      * @memberof sofa.tracking.GoogleAdwordsConversionTracker
      *
      * @description
      *
      *
-     * @param {object} conversionData Event data object.
+     * @param {object} conversionData.
      */
     /* jshint ignore:start */
     self.trackConversion = function (conversionData) {
-
-        window.google_conversion_id = conversionData.id;
-        window.google_conversion_language = conversionData.lang;
-        window.google_conversion_format = conversionData.format;
-        window.google_conversion_color = conversionData.color;
-        window.google_conversion_label = conversionData.label;
-        window.google_conversion_value = conversionData.value;
-        window.google_conversion_currency = conversionData.currency;
-        window.google_remarketing_only = conversionData.remarketing;
-
-        var oldDocumentWrite = document.write;
-
-        // change document.write temporary
-        document.write = function (node) {
-            document.body.appendChild(node);
-        };
-
-        (function () {
-            var s = document.createElement('script');
-            s.src = '//www.googleadservices.com/pagead/conversion.js';
-            s.async = true,
-            s.onload = function () {
-                setTimeout(function () {
-                    document.write = oldDocumentWrite;
-                }, 100);
-            };
-            document.body.appendChild(s);
-        }());
+        window.google_trackConversion({
+            google_conversion_id: conversionData.id,
+            google_conversion_language: conversionData.lang,
+            google_conversion_format: conversionData.format,
+            google_conversion_color: conversionData.color,
+            google_conversion_label: conversionData.label,
+            google_conversion_value: conversionData.value,
+            google_conversion_currency: conversionData.currency,
+            google_remarketing_only: conversionData.remarketing
+        });
     };
     /* jshint ignore:end */
 
